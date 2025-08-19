@@ -13,7 +13,7 @@ import { useMusicStore } from '@/stores/useMusicStore';
   const Topbar = () => {
       const {isAdmin} = useAuthStore();
       const [searchSong,setSearchSong]= useState("");
-      const [filteredSongs, setFilteredSongs] = useState<typeof songs>([]);
+      const [, setFilteredSongs] = useState<typeof songs>([]);
       const {fetchSongs,songs,isLoading,}=useMusicStore();
       const navigate = useNavigate();
 
