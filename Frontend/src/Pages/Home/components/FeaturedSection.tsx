@@ -1,7 +1,6 @@
 import FeaturedSkeleton from "@/components/skeletons/FeaturedSkeleton";
 import { useMusicStore } from "@/stores/useMusicStore"
 import PlayButton from "./PlayButton";
-import { Link } from "react-router-dom";
 
 
 const FeaturedSection = () => {

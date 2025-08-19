@@ -13,12 +13,12 @@ const SongsPage = () => {
     const {isLoading,songs,fetchSongs} = useMusicStore();
     const location = useLocation();
   const searchedSongs = location.state?.searchedSongs;
-  const searchQuery = location.state?.searchQuery;
+//   const searchQuery = location.state?.searchQuery;
 
     useEffect(()=>{
         fetchSongs();
     },[fetchSongs]);
-    const songsToDisplay :Song[] = searchedSongs ?? songs; // allSongs: your default songs list
+    const songsToDisplay :Song[] = searchedSongs ?? songs; // songs: your default songs list
 
 
   return (

@@ -14,10 +14,10 @@ import { useMusicStore } from '@/stores/useMusicStore';
       const {isAdmin} = useAuthStore();
       const [searchSong,setSearchSong]= useState("");
       const [filteredSongs, setFilteredSongs] = useState<typeof songs>([]);
-      const {fetchSongs,songs,isLoading,}=useMusicStore(); // Ensure setFilteredSongs exists in your store
+      const {fetchSongs,songs,isLoading,}=useMusicStore();
       const navigate = useNavigate();
 
-      // Enhanced search logic: case-insensitive, trims, matches title or artist
+
       const handleSearch = () => {
         if (!searchSong.trim()) {
           setFilteredSongs([]);
