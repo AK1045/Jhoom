@@ -13,6 +13,7 @@ interface MusicStore{
     trendingSongs:Song[];
     featuredSongs:Song[];
     stats:Stats;
+    sesrchSongRes:Song[];
 
     fetchAlbums:()=>Promise<void>;
     fetchAlbumById:(id:String) => Promise<void>;
@@ -21,6 +22,7 @@ interface MusicStore{
     fetchTrendingSongs:()=>Promise<void>;
     fetchStats:()=>Promise<void>;
     fetchSongs:()=>Promise<void>
+    fetchSongByTitle:(title:String) => Promise<void>;
     deleteSongs:(id:string)=> Promise<void>;
     deleteAlbum:(id:string)=>Promise<void>;
 
@@ -44,6 +46,7 @@ export const useMusicStore = create<MusicStore>((set)=>({
     trendingSongs:[],
     featuredSongs:[],
     stats:{totalAlbums:0,totalArtists:0,totalSongs:0,totalUsers:0},
+    sesrchSongRes:[],
 
     isFetchAlbumLoading : false,
     isFetchAlbumByIdLoading : false,
@@ -177,6 +180,17 @@ export const useMusicStore = create<MusicStore>((set)=>({
             toast.error("error in Deleting Album" + error.message);
         }finally{
             set({isLoading:false});
+        }
+    },
+    fetchSongByTitle:async(title)=>{
+        set({isLoading:true})
+        try {
+            const response = await InstanceOfAxios.get(`/songs/${title}`);
+            set({sesrchSongRes:response.data})
+        } catch (error:any) {
+            set({error:error.message})
+        }finally{
+            set({isLoading:false})
         }
     }
 }))
