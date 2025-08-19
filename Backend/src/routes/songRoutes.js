@@ -4,9 +4,9 @@ import { onlyAdmin, protectRoute } from "../middleware/authMiddleware.js";
 
 const router = Router();
 
-router.get('/', protectRoute,onlyAdmin,findAllSongs);
-router.get('/featured',featuredSongs);
-router.get('/for-you',madeForYouSongs);
-router.get('/trending',trendingSongs);
+router.get("/", protectRoute,onlyAdmin,findAllSongs);
+router.get("/featured",featuredSongs);
+router.get("/for-you",madeForYouSongs);
+router.get("/trending",trendingSongs);
 
 export default router;
